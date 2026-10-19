@@ -1,0 +1,31 @@
+# Gradle build & cache directories
+.gradle/
+/build/
+/app/build/
+.kotlin/
+
+# Local machine configuration
+local.properties
+
+# Android Studio / IntelliJ local IDE files
+*.iml
+.DS_Store
+/.idea/workspace.xml
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/modules/
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/deploymentTargetSelector.xml
+
+# Generated build artifacts
+*.apk
+*.aar
+*.aab
+*.dex
+
+# Native build & profiler captures
+/captures
+.externalNativeBuild/
+.cxx/
