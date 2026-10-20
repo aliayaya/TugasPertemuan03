@@ -1,74 +1,70 @@
 # Proma PB - Profil Mahasiswa
 
-**Proma PB** (Profil Mahasiswa - Pemrograman Bergerak) adalah aplikasi portofolio mahasiswa berbasis Android yang dibangun menggunakan **Kotlin**, **Jetpack Compose**, dan **Material Design 3**. Aplikasi ini dirancang untuk memenuhi Tugas Pertemuan 3 Mata Kuliah Pemrograman Bergerak dengan tampilan Dark Slate Theme yang sederhana, rapi, dan responsif.
+Proma(Profil Mahasiswa) PB adalah aplikasi Android sederhana yang dibuat untuk memenuhi tugas mata kuliah Pemrograman Bergerak, Pertemuan 3. Aplikasi ini menampilkan informasi mahasiswa, pendidikan, keahlian, dan beberapa contoh proyek. Aplikasi dibuat menggunakan Kotlin dan Jetpack Compose dengan tampilan tema gelap.
 
----
+## Identitas Mahasiswa
 
-## 👤 Identitas Mahasiswa
+- **Nama:** Alia Fellanitami Achyar
+- **NIM:** 0102523010
+- **Program Studi:** Informatika
+- **Universitas:** Universitas Al Azhar Indonesia
+- **Mata Kuliah:** Pemrograman Bergerak
 
-* **Nama**: Alia Fellanitami Achyar
-* **NIM**: 0102523010
-* **Program Studi**: Informatika
-* **Universitas**: Universitas Al Azhar Indonesia
-* **Mata Kuliah**: Pemrograman Bergerak (Tugas Pertemuan 3)
+## Teknologi yang Digunakan
 
----
+Beberapa teknologi yang digunakan dalam project ini adalah:
 
-## 🛠️ Teknologi yang Digunakan
+- **Kotlin** untuk bahasa pemrograman.
+- **Jetpack Compose** untuk membuat tampilan aplikasi.
+- **Material 3** untuk komponen dan desain antarmuka.
+- **Gradle** untuk mengatur proses build dan dependency project.
 
-* **Bahasa Pemrograman**: Kotlin
-* **UI Framework**: Jetpack Compose (Declarative UI)
-* **Design System**: Material Design 3 (Material 3)
-* **Target SDK**: Android SDK 37 (Min SDK 24)
-* **Build System**: Gradle dengan Version Catalog (`libs.versions.toml`)
+## Fitur Aplikasi
 
----
+Aplikasi Proma PB memiliki beberapa bagian, yaitu:
 
-## ✨ Fitur Aplikasi
+1. **Header**, berisi nama aplikasi dan keterangan singkat.
+2. **Profil mahasiswa**, menampilkan nama, NIM, program studi, universitas, dan inisial nama.
+3. **Informasi pendidikan**, berisi informasi universitas, program studi, dan semester. Semester juga dapat diedit melalui tombol yang tersedia.
+4. **Keahlian**, menampilkan daftar skill dalam bentuk chip.
+5. **Daftar proyek**, menampilkan beberapa contoh proyek beserta kategori dan teknologi yang digunakan.
+6. **Footer**, berisi informasi singkat terkait identitas mahasiswa.
+7. **Tampilan yang bisa di-scroll**, sehingga seluruh informasi dapat dilihat meskipun tidak muat dalam satu layar.
+8. **Preview**, untuk melihat tampilan aplikasi melalui fitur Preview di Android Studio.
 
-1. **Header Application**: Menampilkan logo ikon, nama aplikasi **Proma PB**, dan subtitle **Profil Mahasiswa**.
-2. **Kartu Profil Mahasiswa**: Menampilkan avatar lingkaran dengan inisial **AF**, Nama Lengkap, Badge NIM, Program Studi, dan Universitas.
-3. **Kartu Informasi Pendidikan (Interaktif)**:
-   * Menampilkan informasi Universitas, Program Studi, dan Semester.
-   * Dilengkapi fitur **Edit Semester** interaktif (tombol Edit & Simpan menggunakan Compose State).
-4. **Bagian Keahlian & Skill**: Menampilkan daftar skill (*Kotlin*, *Jetpack Compose*, *Android SDK*, dll.) dalam bentuk chip yang tersusun rapi menggunakan `FlowRow`.
-5. **Bagian Proyek Mahasiswa**: Menampilkan kartu proyek portofolio (*Proma Mobile App*, *Sistem Informasi Akademik*, dan *Campus Event Tracker*) lengkap dengan kategori dan *tech stack*.
-6. **Footer Identitas**: Menampilkan ringkasan identitas tugas di bagian bawah layar.
-7. **Responsif & Scrollable**: Konten dapat di-scroll (`verticalScroll`) dan memiliki tata letak yang rapi tanpa teks bertabrakan.
-8. **Pratinjau Android Studio**: Dilengkapi fungsi `@Preview` untuk tampilan lansung di Android Studio.
+## Struktur Folder
 
----
-
-## 📁 Struktur Folder Utama
+Berikut gambaran singkat struktur folder project:
 
 ```text
 TugasPertemuan03_AliaFellanitamiAchyar/
 ├── app/
-│   ├── src/main/java/com/example/tugaspertemuan03_aliafellanitamiachyar/
-│   │   ├── MainActivity.kt        # Entry point aplikasi & Custom Composables Proma PB
-│   │   └── ui/theme/              # Konfigurasi Tema (Color.kt, Theme.kt, Type.kt)
-│   ├── src/main/res/              # Resource aplikasi (strings, colors, mipmap, xml)
-│   └── build.gradle.kts           # Module build configuration
+│   ├── src/main/java/
+│   │   ├── MainActivity.kt
+│   │   └── ui/theme/
+│   ├── src/main/res/
+│   └── build.gradle.kts
 ├── gradle/
-│   └── libs.versions.toml         # Version Catalog dependency management
-├── README.md                      # Dokumentasi project
-├── build.gradle.kts               # Root build configuration
-└── settings.gradle.kts            # Gradle settings configuration
+│   └── libs.versions.toml
+├── README.md
+├── build.gradle.kts
+└── settings.gradle.kts
 ```
 
----
+Keterangan:
+- `MainActivity.kt` berisi kode utama aplikasi dan komponen tampilannya.
+- `ui/theme/` berisi pengaturan tema aplikasi.
+- `res/` berisi resource yang digunakan oleh aplikasi.
+- `libs.versions.toml` digunakan untuk mengatur versi dependency.
+- `build.gradle.kts` dan `settings.gradle.kts` digunakan untuk konfigurasi project Gradle.
 
-## 🚀 Cara Membuka dan Menjalankan Project
+## Cara Menjalankan Aplikasi
 
-1. **Buka Project di Android Studio**:
-   * Jalankan **Android Studio**.
-   * Pilih menu **File > Open**, lalu arahkan ke folder project `TugasPertemuan03_AliaFellanitamiAchyar`.
-   * Tunggu hingga proses **Gradle Sync** selesai.
+1. Buka Android Studio.
+2. Pilih **File > Open**, lalu pilih folder project.
+3. Tunggu sampai proses Gradle Sync selesai.
+4. Jalankan emulator Android atau hubungkan perangkat yang tersedia.
+5. Pilih konfigurasi aplikasi, kemudian klik tombol **Run** untuk menjalankan aplikasi.
 
-2. **Melihat Pratinjau (Preview UI)**:
-   * Buka file `app/src/main/java/.../MainActivity.kt`.
-   * Klik tombol **Split** atau **Design** di pojok kanan atas editor untuk melihat `@Preview` secara langsung tanpa emulator.
+Untuk melihat tampilan tanpa menjalankan aplikasi di emulator, buka `MainActivity.kt` dan gunakan fitur Preview jika tersedia.
 
-3. **Menjalankan di Emulator**:
-   * Pastikan emulator Android (AVD) sudah terpasang dan aktif.
-   * Tekan tombol **Run** (Ikon Segitiga Hijau ▶ / `Shift + F10`) di toolbar atas.
