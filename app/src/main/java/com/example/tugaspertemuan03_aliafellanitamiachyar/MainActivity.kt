@@ -31,6 +31,7 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -199,7 +200,7 @@ fun HeaderBar(
 
 /**
  * Custom Composable 2: ProfileHeaderCard
- * Profile header Dark Slate dengan avatar "AF" dan aksen muted olive.
+ * Profile header Dark Slate dengan avatar "AF", label NIM, dan status mahasiswa.
  */
 @Composable
 fun ProfileHeaderCard(
@@ -258,23 +259,41 @@ fun ProfileHeaderCard(
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(2.dp))
+            Spacer(modifier = Modifier.height(6.dp))
 
-            // Label NIM Chip
-            Surface(
-                shape = RoundedCornerShape(50),
-                color = MaterialTheme.colorScheme.primaryContainer
+            // Label NIM & Status Badges
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = "NIM: $nim",
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 3.dp),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.SemiBold
-                )
+                Surface(
+                    shape = RoundedCornerShape(50),
+                    color = MaterialTheme.colorScheme.primaryContainer
+                ) {
+                    Text(
+                        text = "NIM: $nim",
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+
+                Surface(
+                    shape = RoundedCornerShape(50),
+                    color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
+                ) {
+                    Text(
+                        text = "Mahasiswa Aktif",
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
             }
 
-            Spacer(modifier = Modifier.height(6.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Program Studi & Universitas
             Text(
@@ -289,7 +308,7 @@ fun ProfileHeaderCard(
 
 /**
  * Custom Composable 3: EducationInfoCard
- * Card informasi pendidikan Dark Slate dengan semester yang dapat diedit.
+ * Card informasi pendidikan Dark Slate dengan pemisah garis tipis dan semester yang dapat diedit.
  */
 @Composable
 fun EducationInfoCard(
@@ -349,12 +368,18 @@ fun EducationInfoCard(
                 }
             }
 
+            HorizontalDivider(
+                color = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f),
+                thickness = 1.dp
+            )
+
             EducationRow(label = "Universitas", value = university)
             EducationRow(label = "Program Studi", value = major)
 
             if (isEditing) {
                 Column(
-                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                    modifier = Modifier.padding(top = 4.dp)
                 ) {
                     Text(
                         text = "Edit Semester:",
@@ -639,7 +664,7 @@ fun EducationRow(
     isHighlighted: Boolean = false
 ) {
     Row(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth().padding(vertical = 2.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top
     ) {
