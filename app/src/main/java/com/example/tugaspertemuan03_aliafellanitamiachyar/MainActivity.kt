@@ -88,7 +88,7 @@ fun PromaApp(modifier: Modifier = Modifier) {
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp, vertical = 16.dp),
+            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         // 1. Header Bar
@@ -433,7 +433,7 @@ fun EducationInfoCard(
 
 /**
  * Custom Composable 4: SkillsSection
- * Daftar skill dalam bentuk chip Dark Slate dengan FlowRow.
+ * Daftar skill dalam bentuk chip Dark Slate dengan FlowRow dan tata letak rapi.
  */
 @Composable
 fun SkillsSection(
@@ -455,17 +455,22 @@ fun SkillsSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             SectionTitle(
                 title = "Keahlian & Skill",
                 icon = Icons.Default.Star
             )
 
+            HorizontalDivider(
+                color = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f),
+                thickness = 1.dp
+            )
+
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
-                verticalArrangement = Arrangement.spacedBy(6.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 skills.forEach { skill ->
                     SkillChip(skillName = skill)
@@ -495,7 +500,7 @@ fun SkillChip(
     ) {
         Text(
             text = skillName,
-            modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface,
             fontWeight = FontWeight.Medium
@@ -511,7 +516,7 @@ fun SkillChip(
 fun ProjectsSection(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         SectionTitle(
             title = "Proyek Mahasiswa",
@@ -567,10 +572,12 @@ fun ProjectCard(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(14.dp),
-            verticalArrangement = Arrangement.spacedBy(6.dp)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Column {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(2.dp)
+            ) {
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleMedium,
@@ -585,19 +592,18 @@ fun ProjectCard(
                 )
             }
 
-            Spacer(modifier = Modifier.height(2.dp))
-
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                lineHeight = 20.sp
             )
 
             Spacer(modifier = Modifier.height(2.dp))
 
-            Row(
+            FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
-                verticalAlignment = Alignment.CenterVertically
+                verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 techStack.forEach { tech ->
                     Surface(
@@ -610,7 +616,7 @@ fun ProjectCard(
                     ) {
                         Text(
                             text = tech,
-                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
                             fontSize = 11.sp,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             fontWeight = FontWeight.Medium
@@ -697,10 +703,16 @@ fun FooterSection(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(top = 12.dp, bottom = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(2.dp)
+        verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
+        HorizontalDivider(
+            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
+            thickness = 1.dp,
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+
         Text(
             text = "Proma PB • NIM $nim",
             style = MaterialTheme.typography.labelMedium,
